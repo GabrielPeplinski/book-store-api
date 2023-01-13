@@ -11,7 +11,7 @@ class BookRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -26,7 +26,14 @@ class BookRequest extends FormRequest
         return [
             'name' => 'required|string',
             'isbn' => 'nullable|string|regex:/^[0-9]+$/',
-            'value' => 'nullable|'
+            'value' => 'nullable|numeric|gt:0'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'isbn.regex' => 'Invalid isbn, only numbers are allowed',
         ];
     }
 }
