@@ -12,7 +12,7 @@ class RegisterController extends Controller
     public function register(Request $request, User $user): JsonResponse
     {
         $userData = $request->validate([
-            'email' => 'required|string',
+            'email' => 'required|string|unique:users,email',
             'name' => 'required|string',
             'password' => 'required|string|confirmed'
         ]);
