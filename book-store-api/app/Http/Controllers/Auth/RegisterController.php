@@ -27,8 +27,7 @@ class RegisterController extends Controller
                 'data' => [
                     'message' => 'User sucefully registered',
                     'name' => $user->name,
-                    'status' => 201
                 ]
-            ]);
+            ], 201);
     }
 }

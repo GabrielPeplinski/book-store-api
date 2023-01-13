@@ -25,10 +25,9 @@ class LoginController extends Controller
                 'data' => [
                     'message' => 'User sucefully logged',
                     'token' => $token->plainTextToken,
-                    'name' => auth()->user()->name,
-                    'status' => 201
+                    'name' => auth()->user()->name
                 ]
-            ]);
+            ], 200);
     }
 
     public function logout(): JsonResponse
@@ -39,9 +38,8 @@ class LoginController extends Controller
             ->json([
                 'data' => [
                     'message' => 'User sucefully logged out',
-                    'name' => auth()->user()->name,
-                    'status' => 200
+                    'name' => auth()->user()->name
                 ]
-            ]);
+            ], 200);
     }
 }
